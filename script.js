@@ -1,4 +1,4 @@
-// 1. Write function getComputerChoice
+// Getting computer choice
 const possibleVariant = [
 	"paper",
 	"scissors",
@@ -11,9 +11,10 @@ function getComputerChoice(variant) {
 	variant = possibleVariant;
 	let randomNumber = Math.random();
 	let index = Math.floor(randomNumber * variant.length);
-	console.log(variant[index]);
+	console.log("Computer choice is", variant[index]);
 	return variant[index];
 }
+//Getting user choice
 function getUserChoice() {
 	let userInput = prompt(
 		"Please enter s for scissors, or p for paper, or r for rock"
@@ -21,25 +22,21 @@ function getUserChoice() {
 	let userChoice;
 	if (userInput === "s") {
 		userChoice = "scissors";
-		console.log("Your choise is", userChoice);
+		console.log("Your choice is", userChoice);
 		return userChoice;
 	} else if (userInput === "r") {
 		userChoice = "rock";
-		console.log("Your choise is", userChoice);
+		console.log("Your choice is", userChoice);
 		return userChoice;
 	} else if (userInput === "p") {
 		userChoice = "paper";
-		console.log("Your choise is", userChoice);
+		console.log("Your choice is", userChoice);
 		return userChoice;
 	} else {
 		return false;
 	}
 }
-/* 2. Write a function that plays a single round
-      The function should take two parameters - playerSelection
-			and computerSelection.
-			 then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-			 */
+// Function that plays a single round
 function singleRound(playerSelection, computerSelection) {
 	if (playerSelection === false) {
 		alert("incorrect user input");
@@ -59,17 +56,15 @@ function singleRound(playerSelection, computerSelection) {
 		return "player";
 	}
 	// loose situation
-	else if (
-		(playerSelection === "paper" && computerSelection === "scissors") ||
-		(playerSelection === "rock" && computerSelection === "paper") ||
-		(playerSelection === "scissors" && computerSelection === "rock")
-	) {
+	else {
 		alert(
 			showLoose() + " " + showWhoBeatsWho(computerSelection, playerSelection)
 		);
 		return "computer";
 	}
 }
+
+// Message functions
 function showLoose() {
 	let message = "You loose!";
 	return message;
@@ -79,9 +74,11 @@ function showWin() {
 	let message = "You win!";
 	return message;
 }
+
 function showEqual() {
 	alert("It is equal.");
 }
+
 function showWhoBeatsWho(winner, looser) {
 	let message =
 		winner.charAt(0).toUpperCase() +
@@ -92,7 +89,25 @@ function showWhoBeatsWho(winner, looser) {
 		"!";
 	return message;
 }
-singleRound(getUserChoice(), getComputerChoice());
-/* 3. Write a new function called game() which plays a five rounds,
-      keeps score and reports a winner or a looser at the end.
-*/
+
+//  Function game() which plays  five rounds, keeps score and reports a winner or a looser at the end.
+function game() {
+	let computerScore = 0;
+	let playerScore = 0;
+	for (let i = 0; i < 5; i++) {
+		let round = singleRound(getUserChoice(), getComputerChoice());
+		if (round === "player") {
+			playerScore++;
+		} else if (round === "computer") {
+			computerScore++;
+		}
+	}
+	if (computerScore < playerScore) {
+		alert("Game over. You win");
+	} else if (computerScore > playerScore) {
+		alert("Game over. Computer wins");
+	} else {
+		alert("Game over. You are equal");
+	}
+}
+game();
