@@ -45,6 +45,7 @@ function singleRound(playerSelection, computerSelection) {
 		alert("incorrect user input");
 	} else if (playerSelection === computerSelection) {
 		showEqual();
+		return "equal";
 	}
 	// win situation
 	else if (
@@ -55,6 +56,7 @@ function singleRound(playerSelection, computerSelection) {
 		alert(
 			showWin() + " " + showWhoBeatsWho(playerSelection, computerSelection)
 		);
+		return "player";
 	}
 	// loose situation
 	else if (
@@ -65,8 +67,7 @@ function singleRound(playerSelection, computerSelection) {
 		alert(
 			showLoose() + " " + showWhoBeatsWho(computerSelection, playerSelection)
 		);
-	} else {
-		alert("game incomplete");
+		return "computer";
 	}
 }
 function showLoose() {
@@ -91,10 +92,6 @@ function showWhoBeatsWho(winner, looser) {
 		"!";
 	return message;
 }
-singleRound(getUserChoice(), getComputerChoice());
-singleRound(getUserChoice(), getComputerChoice());
-singleRound(getUserChoice(), getComputerChoice());
-singleRound(getUserChoice(), getComputerChoice());
 singleRound(getUserChoice(), getComputerChoice());
 /* 3. Write a new function called game() which plays a five rounds,
       keeps score and reports a winner or a looser at the end.
