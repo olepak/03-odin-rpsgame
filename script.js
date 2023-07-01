@@ -1,4 +1,3 @@
-// Getting computer choice
 const possibleVariant = [
 	"paper",
 	"scissors",
@@ -7,6 +6,7 @@ const possibleVariant = [
 	"scissors",
 	"rock",
 ];
+// Function for getting computer choice
 function getComputerChoice(variant) {
 	variant = possibleVariant;
 	let randomNumber = Math.random();
@@ -14,7 +14,7 @@ function getComputerChoice(variant) {
 	console.log("Computer choice is", variant[index]);
 	return variant[index];
 }
-//Getting user choice
+//Function for getting user choice
 function getUserChoice() {
 	let userInput = prompt(
 		"Please enter s for scissors, or p for paper, or r for rock"
@@ -109,5 +109,6 @@ function game() {
 	} else {
 		alert("Game over. You are equal");
 	}
+	alert(playerScore + ":" + computerScore);
 }
 game();
