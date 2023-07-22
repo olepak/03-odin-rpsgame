@@ -1,11 +1,4 @@
-const possibleVariant = [
-	"paper",
-	"scissors",
-	"rock",
-	"paper",
-	"scissors",
-	"rock",
-];
+const possibleVariant = ["paper", "scissors", "rock"];
 // Function for getting computer choice
 function getComputerChoice(variant) {
 	variant = possibleVariant;
