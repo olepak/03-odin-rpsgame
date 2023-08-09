@@ -7,6 +7,7 @@ function getComputerChoice(variant) {
 	console.log("Computer choice is", variant[index]);
 	return variant[index];
 }
+
 //Function for getting user choice
 function getUserChoice() {
 	let userInput = prompt(
@@ -29,6 +30,7 @@ function getUserChoice() {
 		return false;
 	}
 }
+
 // Function that plays a single round
 function singleRound(playerSelection, computerSelection) {
 	if (playerSelection === false) {
@@ -48,7 +50,7 @@ function singleRound(playerSelection, computerSelection) {
 		);
 		return "player";
 	}
-	// loose situation
+	// lose situation
 	else {
 		alert(
 			showLoose() + " " + showWhoBeatsWho(computerSelection, playerSelection)
